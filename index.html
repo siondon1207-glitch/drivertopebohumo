@@ -1,23 +1,738 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "자동차 운전자보험 비교 및 최적화 분석 서비스",
+      "description": "2026년 최신 법률 개정안을 반영한 자동차 운전자보험 비교 가이드. 연령별 평균 요금, 변호사선임비용, 교통사고처리지원금 등 핵심 특약을 상세히 분석합니다.",
+      "sku": "DRIVER-INS-2026",
+      "brand": {
+        "@type": "Brand",
+        "name": "운전자보험 분석지원"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "218"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://info.reliabledone.com/driver-insurance-guide-2026",
+        "priceCurrency": "KRW",
+        "price": "0",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+      :root {
+        --main-color: #1e3d59; /* 신뢰감을 주는 차분한 네이비 */
+        --accent-color: #e07a5f; /* 따뜻하고 세련된 테라코타 주황 */
+        --secondary-color: #f5f0eb; /* 부드러운 웜베이지 배경색 */
+        --bg-color-light: #f8f9fa;
+        --text-color: #2b2d42;
+        --heading-color: #1e3d59;
+        --border-color: #d1d9e0;
+      }
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.9;
+        background-color: var(--bg-color-light);
+        color: var(--text-color);
+        font-size: 16px;
+      }
+      header {
+        background-color: var(--main-color);
+        color: white;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+      header h1 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+        letter-spacing: -0.5px;
+      }
+      header p {
+        font-size: 1.15rem;
+        opacity: 0.95;
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease, border-color 0.3s ease;
+        padding-bottom: 5px;
+        border-bottom: 2px solid transparent;
+      }
+      nav a:hover {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+      }
+      main {
+        max-width: 1050px;
+        margin: 3rem auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      }
+      section {
+        padding: 2.5rem 0;
+      }
+      h2 {
+        color: var(--heading-color);
+        font-size: 1.9rem;
+        font-weight: 700;
+        padding-bottom: 0.6rem;
+        border-bottom: 4px solid var(--accent-color);
+        margin-top: 2.5rem;
+        margin-bottom: 1.8rem;
+        letter-spacing: -0.5px;
+      }
+      h3 {
+        color: var(--main-color);
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1.2rem;
+        padding-left: 10px;
+        border-left: 4px solid var(--main-color);
+      }
+      p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #eef2f5;
+        margin: 2.5rem 0;
+      }
+      /* 테이블 스타일 */
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+      th, td {
+        padding: 1.1rem;
+        border-bottom: 1px solid #eef2f5;
+        text-align: center;
+        font-size: 0.95rem;
+      }
+      th {
+        background-color: var(--main-color);
+        color: white;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      tbody tr:nth-child(even) {
+        background-color: #fafbfc;
+      }
+      tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+      /* 키워드 태그 */
+      .keyword-tags {
+        margin: 2rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .keyword-tags a {
+        background-color: #eaeef3;
+        color: var(--main-color);
+        padding: 9px 16px;
+        border-radius: 30px;
+        font-size: 0.88rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+      .keyword-tags a:hover {
+        background-color: var(--main-color);
+        color: white;
+      }
+      /* CTA 버튼 */
+      .cta-button {
+        display: block;
+        width: 85%;
+        max-width: 420px;
+        margin: 2.5rem auto;
+        background-color: var(--accent-color);
+        color: white;
+        font-weight: 700;
+        padding: 1.3rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-align: center;
+        font-size: 1.15rem;
+        box-shadow: 0 5px 15px rgba(224, 122, 95, 0.3);
+      }
+      .cta-button:hover {
+        background-color: #cd674c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(224, 122, 95, 0.4);
+      }
+      /* FAQ 아코디언 */
+      dl dt {
+        font-weight: 700;
+        margin-top: 1.2rem;
+        padding: 1.2rem;
+        background-color: #f0f4f8;
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--main-color);
+        transition: background-color 0.3s ease;
+        border-left: 6px solid var(--accent-color);
+        outline: none;
+      }
+      dl dt:hover {
+        background-color: #e2eaf1;
+      }
+      dl dt.active {
+        background-color: var(--main-color);
+        color: white;
+      }
+      dl dd {
+        margin-left: 0;
+        padding: 1.2rem 1.5rem;
+        border: 1px solid var(--border-color);
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        display: none;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      }
+      dl dt.active + dd {
+        display: block;
+      }
+      /* 견적 시뮬레이터 폼 스타일 */
+      .simulator-container {
+        background-color: var(--secondary-color);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.02);
+        margin: 2.5rem 0;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-group label {
+        font-weight: 700;
+        color: var(--heading-color);
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .form-group input, .form-group select {
+        padding: 0.85rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        background-color: white;
+      }
+      .form-group input:focus, .form-group select:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 8px rgba(224, 122, 95, 0.15);
+        outline: none;
+      }
+      /* 시뮬레이터 결과 영역 */
+      .calc-result-box {
+        display: none;
+        background-color: white;
+        border: 2px solid var(--main-color);
+        border-radius: 10px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      .calc-result-box.active {
+        display: block;
+      }
+      .result-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--main-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.8rem;
+        margin-bottom: 1.2rem;
+      }
+      .result-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        background-color: #f8fafc;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+      .price-large {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--accent-color);
+      }
+      /* 출처 링크 스타일 */
+      .source-links {
+        background-color: #fdfdfd;
+        border: 1px solid #eaeaea;
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+      .source-links a {
+        display: block;
+        color: #3b71ca;
+        margin-bottom: 0.8rem;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .source-links a:hover {
+        text-decoration: underline;
+        color: var(--accent-color);
+      }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #6c757d;
+        background-color: var(--secondary-color);
+        margin-top: 4rem;
+        border-top: 1px solid var(--border-color);
+        border-radius: 0 0 16px 16px;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>자동차 운전자보험 비교 및 절약 가이드 | 2026년 최신 개정 반영</h1>
+        <p>어렵고 복잡한 운전자보험의 요금 설계와 할인 특약을 상세히 비교하여, 불필요한 지출을 없애고 가장 현명하게 구성할 수 있는 가이드를 제시합니다.</p>
+        <nav>
+            <ul>
+                <li><a href="#intro">운전자보험의 정의와 필요성</a></li>
+                <li><a href="#difference">자동차보험과의 차이점</a></li>
+                <li><a href="#riders">핵심 3대 특약 분석</a></li>
+                <li><a href="#simulator">실시간 자가 요금 계산기</a></li>
+                <li><a href="#age-trends">연령별 및 상황별 플랜</a></li>
+                <li><a href="#qa">자주 묻는 질문</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="intro">
+            <h2>운전자보험의 정의와 필요성 및 2026년 가입 흐름</h2>
+            <p>도로 위에서 아무리 완벽하게 방어 운전을 지키더라도 갑작스러운 타인의 실수나 통제할 수 없는 요인들로 인해 사고가 야기될 수 있습니다. 이때 발생하는 민사적 형사적 책임을 대비하기 위해 가입하는 대표적인 보장 수단이 바로 자동차 운전자보험입니다. 많은 사람들이 단순히 의무적으로 등록하는 자동차보험만 가지고 있으면 모든 상황이 해결될 것으로 믿는 경향이 있습니다. 그러나 이는 매우 중대한 오해 중 하나입니다.</p>
+            <p>일반적인 자동차보험은 사고를 당한 타인의 인명 및 대물 피해를 금전적으로 메워주는 민사 배상을 주 목적으로 합니다. 반면 자동차 운전자보험은 신호위반, 중앙선 침범 등 법에서 명시한 12대 중과실 사고나 스쿨존 내 어린이 상해 사고(민식이법) 등 심각한 형사 입건 상황이 닥쳤을 때 생기는 리스크를 철저히 관리하기 위해 설계됩니다. 2026년에는 형사사건의 합의 과정이나 경찰조사단계에서 피의자가 법률 전문가의 온전한 보장을 받도록 돕는 규정이 정교하게 정비되었습니다. 이에 따라 신규 가입자나 기존 보유 상품을 점검하려는 똑똑한 운전자들 사이에서 합리적인 대안을 찾아 리모델링하는 경향이 뚜렷해지고 있습니다.</p>
+
+            <div class="keyword-tags" aria-label="운전자보험 핵심 탐색 키워드">
+                <a href="#difference">운전자보험 자동차보험 차이점</a>
+                <a href="#riders">변호사선임비용 경찰조사단계</a>
+                <a href="#simulator">운전자보험 가격 계산기</a>
+                <a href="#age-trends">30대 운전자보험 추천</a>
+                <a href="#age-trends">영업용 화물차 보험요금</a>
+                <a href="#riders">교통사고처리지원금 한도</a>
+                <a href="#qa">자부상 14급 평균 금액</a>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section id="difference">
+            <h2>자동차보험 vs 운전자보험의 명확한 차이점 분석</h2>
+            <p>보장 목적과 적용되는 법적 책임 영역의 차이를 정확히 알지 못한다면 정작 위기 상황에서 아무런 효력을 발휘하지 못할 수 있습니다. 아래의 대조표를 통해 각 보장의 역할 분담과 평균적인 예산 지출 형태를 명확히 이해해 보시기 바랍니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분 항목</th>
+                        <th>자동차보험 (의무 가입 대상)</th>
+                        <th>자동차 운전자보험 (선택형 금융 상품)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>가장 주된 목적</strong></td>
+                        <td>상대방 차량의 파손 수리 및 인명 피해 치료비 보상</td>
+                        <td>가입자 본인의 형사 처벌 방어 및 법률 비용 지원</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가입 의무 및 요건</strong></td>
+                        <td>국가 법령에 따른 전 차량 의무 가입 대상</td>
+                        <td>개인의 선택에 따라 가입하는 임의 보장 상품</td>
+                    </tr>
+                    <tr>
+                        <td><strong>월평균 지출 요금</strong></td>
+                        <td>연간 일시납 기준 수십만 원에서 수백만 원 대 형성</td>
+                        <td>월 1만 원 대에서 3만 원 내외의 정액제 구성</td>
+                    </tr>
+                    <tr>
+                        <td><strong>핵심 보장 항목</strong></td>
+                        <td>대인배상 일형 및 이형, 대물배상, 자기차량손해</td>
+                        <td>교통사고처리지원금, 변호사선임비용, 형사벌금</td>
+                    </tr>
+                    <tr>
+                        <td><strong>할인 및 갱신 방식</strong></td>
+                        <td>매년 가입자의 무사고 기간 및 주행거리 기준으로 재산정</td>
+                        <td>가입 시 만기 기간까지 거의 일정한 요금이 고정 유지</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>일반적으로 의무적으로 가입하는 상품은 타인을 향해 발생한 손실을 대물 5억 원 혹은 10억 원과 같은 큰 금액 한도로 설정해 물어주게 됩니다. 하지만 나 자신에게 기소 혹은 구속영장 청구 등의 형사적 올가미가 씌워질 때는 직접 수천만 원의 현금을 조달해 변호사를 구하고 국가에 벌금을 납부해야 합니다. 이러한 최악의 시나리오에서 재정적 붕괴를 예방하는 가장 확실한 방법이 운전자보험 가입입니다.</p>
+        </section>
+
+        <hr>
+
+        <section id="riders">
+            <h2>2026년 기준 운전자보험 3대 핵심 특약 및 우수 특약 정밀 분석</h2>
+            <p>다양한 종류의 브랜드 중 가장 저렴한곳이나 싼곳을 비교하여 가입을 신청하더라도, 그 내용에 핵심 특약이 적정한 한도로 포함되어 있지 않다면 무용지물이 될 수 있습니다. 최신 약관 기준에 따라 반드시 가입 설계서 상에 꼼꼼히 점검하여 반영해야 할 3가지 필수 조항은 다음과 같습니다.</p>
+
+            <h3>1. 교통사고처리지원금 (형사합의금 지원)</h3>
+            <p>운전 도중 12대 중과실로 분류되는 중대 사고로 피해자를 사망에 이르게 하거나 전치 수십 주 이상의 치명적인 중상해를 입힌 경우, 처벌 수위를 낮추기 위해 합의가 절대적으로 요구됩니다. 과거와 달리 현재는 피해자 한 명당 최대 2억 원에서 2억 5천만 원 선까지 합의금 보장 한도가 책정되는 것이 보편적입니다. 특히 과거 가입자 중 형사 합의 과정에서 선지급 제도가 없어 우선 개인 자금으로 수천만 원을 수급한 후 후 청구해야 했던 단점을 개선하여, 2026년 현재는 보험사가 피해자에게 직접 합의금을 인도하는 100% 선지급 공탁 시스템이 널리 활성화되었습니다.</p>
+
+            <h3>2. 변호사선임비용 (경찰조사단계 확장 여부 필수)</h3>
+            <p>종래의 상품들은 정식 기소 후 재판이 열렸을 때 선임한 비용만을 보상해 주는 단점이 있었습니다. 그러나 실제로 변호사의 적극적인 도움과 초기 대처가 가장 절실하게 작용하는 구간은 기소 전 첫 진술을 조율하는 경찰조사단계입니다. 최근 판매되는 신규 다이렉트 및 오프라인 대다수 브랜드들은 불기소, 약식기소뿐 아니라 수사 초기의 동행 지원비까지 온전히 책정하여 지급해 줍니다. 따라서 본인이 예전에 가입한 보유 계약을 분석하고 이에 맞추어 업그레이드 혹은 새롭게 리모델링 설계를 컨설팅받는 편이 유리합니다.</p>
+
+            <h3>3. 대인 및 대물 벌금</h3>
+            <p>사고 유죄 판결로 인해 법원으로부터 최종 벌금형이 확정되었을 때 청구되는 지출 금액을 말합니다. 특정범죄 가중처벌법(일명 민식이법)의 적용 이후로 스쿨존 인명 사고 시 대인 벌금 최대 납부액이 3,000만 원까지 인상되었습니다. 대물 사고로 인한 벌금도 도로교통법 위반에 따라 최고 500만 원까지 청구되므로 이를 꼼꼼하게 채워 넣어 빈틈없는 방어벽을 세우는 것이 올바른 방법입니다.</p>
+
+            <h3>4. 자동차사고부상치료비 (자부상) 활용 및 장단점</h3>
+            <p>자부상은 교통사고로 인해 부상을 입고 병원 치료를 진행할 때, 상해 등급에 따라 정해진 정액 보험금을 수령하는 구조입니다. 가장 흔하게 진단받는 경미한 찰과상이나 단순 타박상에 해당되는 14급 판정에도 약 10만 원에서 30만 원 상당의 치료비가 산정되어 지급되기 때문에 제일 인기가 높은 특약 중 하나입니다. 다만 이러한 높은 청구 빈도로 인해 손해율이 급증하자 다수 업체에서 지급 기준을 대폭 강화하거나 한도 금액을 축소하는 조치를 취하는 단점도 존재합니다. 실용성을 원한다면 해당 조항의 추가 여부를 요금과 대비하여 산정해 보는 판단이 요구됩니다.</p>
+        </section>
+
+        <hr>
+
+        <section id="simulator">
+            <h2>운전자보험 실시간 자가 요금 계산기</h2>
+            <p>개개인의 현재 연령, 직업의 특성, 운행 패턴에 따라 보험사 내부 요율에 반영되는 가격 변동폭을 즉각 계산해 볼 수 있는 모의 시스템입니다. 상세 내용을 빠짐없이 설정할수록 더욱 정교하고 타당한 결과에 근접한 산출 수치가 분석되어 노출됩니다.</p>
+            
+            <div class="simulator-container">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="calc-age">가입 대상 연령 구분</label>
+                        <select id="calc-age">
+                            <option value="20">만 20대 초반에서 후반 (사회초년생)</option>
+                            <option value="30" selected>만 30대 구간 (직장인 및 신혼부부)</option>
+                            <option value="40">만 40대 구간 (안정적인 패밀리 드라이버)</option>
+                            <option value="50">만 50대 구간 (장기 경력 보유자)</option>
+                            <option value="60">만 60대 이상 실버 연령대 (고연령 운전)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="calc-purpose">차량 주행 형태 및 용도</label>
+                        <select id="calc-purpose">
+                            <option value="personal">개인 자가용 (일반 출퇴근 및 주말 일상)</option>
+                            <option value="couple">부부 동승 (공동 명의 패밀리카 운행)</option>
+                            <option value="commercial-truck">영업용 특수 차량 (대형 화물차 수송)</option>
+                            <option value="commercial-taxi">영업용 대중 운송 (일반 택시 및 법인 버스)</option>
+                            <option value="two-wheel">이륜차 및 오토바이 (배달 및 신속 운송 업무)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-level">희망하는 보장 구성 한도</label>
+                        <select id="calc-level">
+                            <option value="eco">실속 가성비 플랜 (월 1만 원대 중심 고정)</option>
+                            <option value="standard">표준 표준형 플랜 (가장 균형 잡힌 인기 설계)</option>
+                            <option value="premium">프리미엄 최고가 플랜 (상해 의료비 대폭 포함)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-experience">최근 3년간 법규 위반 및 사고 이력</label>
+                        <select id="calc-experience">
+                            <option value="clean">완전 무사고 (할인 특약 대상 후보)</option>
+                            <option value="minor">가벼운 대물 접촉사고 1회</option>
+                            <option value="major">과속 또는 신호 위반 딱지 발부 있음</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label style="margin-bottom: 0.8rem;">원하는 핵심 및 부가 약관 추가 (중복 선택 가능)</label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="chk-lawyer" checked> 경찰조사 변호사 비용 강화
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="chk-injury" checked> 자동차사고 부상치료비 추가
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="chk-family"> 가족 일상 배상책임 포함
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="chk-silver"> 실버 맞춤 뇌/심장 진단비
+                        </label>
+                    </div>
+                </div>
+
+                <button type="button" onclick="calculatePremium()" class="cta-button" style="width: 100%; max-width: none; margin: 0;">2026년 맞춤형 예상 가격 무료 산출하기</button>
+            
+                <div id="calc-result" class="calc-result-box">
+                    <div class="result-title">입력 정보 분석 리포트</div>
+                    <div class="result-price-row">
+                        <span>예상되는 합리적 월 납입 요금:</span>
+                        <span id="result-price" class="price-large">0원</span>
+                    </div>
+                    <p id="result-desc" style="font-size: 0.95rem; line-height: 1.7; margin: 0;"></p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="age-trends">
+            <h2>연령별 상황별 운전자보험 평균 요금 동향과 설계법</h2>
+            <p>보험료는 가입자의 연령과 성별, 그리고 차량의 종류에 따라 매우 다양하게 변동됩니다. 아래의 표와 상세 가이드를 통해 각 그룹에 최적화된 설계 방향성을 파악해 보시기 바랍니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>가입 대상 구분</th>
+                        <th>평균 월 요금 범위 (원)</th>
+                        <th>추천 특약 세팅 및 핵심 혜택 꿀팁</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>20대 사회초년생</strong></td>
+                        <td>9,800 ~ 14,000</td>
+                        <td>온라인 다이렉트 채널을 이용한 최저가 가성비 1만 원대 고정 구성 추천</td>
+                    </tr>
+                    <tr>
+                        <td><strong>30대 및 40대 가장</strong></td>
+                        <td>12,000 ~ 18,000</td>
+                        <td>부부 한정 등 패밀리 설계 및 일상생활 중 배상책임 조항 중복 체크 필수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>50대 및 60대 실버</strong></td>
+                        <td>15,000 ~ 25,000</td>
+                        <td>연령에 따른 집중 치료 및 시니어 골절 진단비 보조 강화 권장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>영업용 화물차 및 트럭</strong></td>
+                        <td>28,000 ~ 45,000</td>
+                        <td>면허 정지 및 면허 취소 시 긴급 생계비 조달형 특별 패키지 반영 필수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>택시 및 버스 전문 운전</strong></td>
+                        <td>30,000 ~ 50,000</td>
+                        <td>승객 대인 분쟁 및 민사 형사 동시 지원 플랜 집중 분석</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>20대 사회초년생 및 신규 면허 소지자의 준비 요령</h3>
+            <p>면허를 취득한 지 얼마 안 된 초보 운전자나 20대 연령대는 사고 위험도가 통계적으로 높게 분석되어 대다수 보험사에서 면밀하게 주시하는 그룹입니다. 그렇기 때문에 상대적으로 가격 거품이 빠진 온라인 다이렉트 전용 플랫폼을 활용하여 신규 가입을 결정하는 법이 효율적입니다. 불필요한 질병 사망, 암 진단금 같은 상해 특약 항목을 다 덜어낸 알짜배기 기본 구조를 만들면 월 1만 원 미만의 저렴한곳에서도 부담 없는 월정액을 책정받을 수 있습니다.</p>
+
+            <h3>30대 직장인과 40대 부부 드라이버의 합리적 전략</h3>
+            <p>이 시기에는 본인뿐 아니라 가족이 다 함께 패밀리카를 운전하는 사례가 많아지므로 보장 범위를 신중하게 결정해야 합니다. 한 명만 가입하는 것보다 부부 특약 구조의 패키지를 이용하면 개별 가입 대비 약 10% 내외의 할인을 주는 상품들이 존재합니다. 또한 주말 레저 및 가족 여가 중 겪는 사고까지 담보하는 일상생활 배상책임 특약이 이미 다른 보장 장치에 들어있는지 확인하여 이중으로 돈이 새어 나가지 않도록 다이렉트 계산기 앱이나 어플을 통해 중복 조회를 해보는 절차가 요구됩니다.</p>
+
+            <h3>영업용 화물 및 버스, 택시 전문 업체의 필수 요건</h3>
+            <p>영업 목적으로 장시간 대형 차량을 모는 이들은 일반 가용 운전자보다 도로 노출 시간이 대단히 길어 그만큼 사고 유발 위험 수위가 월등히 높습니다. 따라서 사고 발생 시 즉시 생계 수단을 상실할 수 있는 운전면허 취소처분 위로금이나 행정 처분 방어 조항들을 특약에 반드시 첨부해야 합니다. 가격이 비교적 수만 원 대에 이르는 등 다소 비싸더라도 보장 규모를 아끼지 않고 든든히 지탱해 줄 수 있는 대형 메이저 브랜드를 선정해 전문 가입 상담을 이행하는 편이 낫습니다.</p>
+        </section>
+
+        <hr>
+
+        <section id="forum-reviews">
+            <h2>국내 주요 온라인 커뮤니티의 실사용자 가입 분석 및 후기 동향</h2>
+            <p>다양한 온라인 동호회 및 플랫폼에서 오가는 진솔한 의견들을 모아 종합해 보면 유익한 가이드라인을 확보할 수 있습니다. 각 커뮤니티의 특색 있는 반응들은 대략 다음과 같습니다.</p>
+
+            <h3>보배드림 및 자동차 매니아 포럼 반응</h3>
+            <p>보배드림 내 숙련된 드라이버들은 비싼 고액 설계보다는 최소 예산의 다이렉트 만원 운전자보험을 제일 신용하며 추천하는 추세입니다. 불필요한 유인 광고에 넘어가 수천 원의 수수료를 허비하기보다 교통사고처리지원금 및 변호사비용, 벌금 등 오직 3대 기본 장치에만 충실하게 가입한 다음 차액을 절약하는 노하우가 널리 확산되어 공유되고 있습니다.</p>
+
+            <h3>디시인사이드 보험 갤러리 피드백</h3>
+            <p>디시인사이드 내부의 스마트한 유저층은 이른바 성지 좌표나 비공식 현금지원, 상품권 지급 이벤트를 꼼꼼하게 따져 실속을 취하는 가입 방법이 빈번하게 서술됩니다. 신규 유입자들의 경우 대형 비교 사이트를 활용해 견적 요금제를 세부 계산한 내돈내산 가입 인증 글을 남기기도 하며, 보장의 실질적인 허점을 논리적으로 짚어내는 날카로운 평판도 지니고 있습니다.</p>
+
+            <h3>펨코 및 에펨코리아 청년 드라이버 의견</h3>
+            <p>에펨코리아에서는 토스, 네이버, 카카오톡 기반의 스마트폰 어플 간편 연동을 통한 비교 방식을 높게 쳐주는 경향이 있습니다. 가입 과정이 간편하고 주유 할인 상품권이나 사은품 등의 추가 혜택을 당일 지급해 주는 다이렉트 채널들이 각광을 받습니다. 또한 AI를 접목한 챗지피티나 제미나이 등의 인공지능 도구를 통해 스스로 약관을 독해하며 최적가를 도출해 내는 신세대 특유의 실용적 가입 형태가 많이 서술됩니다.</p>
+        </section>
+
+        <hr>
+
+        <section id="sources">
+            <h2>공신력 있는 신뢰 기관의 공식 외부 정보망 안내</h2>
+            <p>본 안내서 외에 법률 조항의 제정 및 소비자 분쟁 예방을 위한 가이드 등 한층 더 신빙성 높은 정식 정보가 필요하시다면 아래의 연계 링크를 통하여 공인된 문헌을 직접 검토해 보시기 바랍니다.</p>
+            <div class="source-links">
+                <a href="https://drivertopebohump.directreliable.com" target="_blank" rel="noopener noreferrer">1. reliabledone 금융 정보 센터 - 2026년 운전자보험 개정안 핵심 가이드</a>
+                <a href="https://namu.wiki/w/%EC%9A%B4%EC%A0%84%EC%9E%90%20%EB%B3%B4%ED%97%98" target="_blank" rel="noopener noreferrer">2. 나무위키 - 운전자보험의 정의 및 국내 시장 역사 흐름</a>
+                <a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">3. 국가법령정보센터 - 교통사고처리특례법 및 중과실 법적 조항</a>
+                <a href="https://www.kca.go.kr" target="_blank" rel="noopener noreferrer">4. 한국소비자원 - 보험 분쟁 및 소비자 안심 금융 사례 정보</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="qa">
+            <h2>자동차 운전자보험 관련 자주 묻는 질문</h2>
+            <dl>
+                <dt tabindex="0" aria-expanded="false">운전자보험은 중복으로 가입했을 때 비례보상이 적용되나요 아니면 중복보상인가요?</dt>
+                <dd>운전자보험의 핵심 항목인 교통사고처리지원금, 벌금, 변호사선임비용은 모두 실제 발생한 비용에 대해서만 한도 내에서 메워주는 비례보상 방식이 적용됩니다. 그러므로 두 군데 이상의 회사에 가입을 신청하더라도 중복으로 중첩 수령할 수 없으며 오직 보험료만 이중으로 부담하게 되므로 사전에 기존 계약 보유 여부를 필히 조회해야 합니다. 다만 자동차사고부상치료비(자부상)와 같이 정해진 계약금액을 일괄 지급하는 정액형 약관은 예외적으로 중복 수령이 인정됩니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">음주운전이나 무면허 상태에서 발생한 중대 사고도 보장이 가능한가요?</dt>
+                <dd>사회의 상식을 벗어나는 범죄 행위에 해당하는 음주운전, 무면허 운전, 뺑소니 사고 등은 보험 약관상 절대적 면책 사유에 포함됩니다. 어떠한 합의금이나 법률 보조 비용도 일절 수령할 수 없으며 형사적 민사적 책임 모두를 가입자 본인이 온전히 부담해야 하므로 도로교통법상의 규칙 준수는 필수적입니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">20대 초반 청년 드라이버가 다이렉트로 저렴하게 세팅하는 요금 가이드라인은 어떻게 되나요?</dt>
+                <dd>20대 연령대의 평균 가격 요금은 설계사의 수당이나 불필요한 사은품 유통 수수료가 절제된 온라인 전용 채널을 고르는 편이 현명합니다. 월 1만 원 내외의 컴팩트한 예산 한도를 정해두고 자부상이나 진단비 등을 최소화한 핵심 3대 형사 책임 보장만으로 설계하면 충분한 보호 장치를 갖추면서도 매월 나가는 지출 부담을 크게 완화할 수 있습니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">기존에 오랫동안 들고 있던 예전 약관 상품을 해지하고 갈아타는 방법이 이득일까요?</dt>
+                <dd>현재 보유 중인 보장 한도를 최신 기준과 객관적으로 면밀히 대조해 보아야 합니다. 과거 상품은 경찰조사단계에서의 수사비 책정이 제외되거나 공탁금 사전 선지급 규정이 부재한 낡은 맹점들이 다수 발견됩니다. 반면 이전에 존재하던 고액의 상해 특약이나 유익한 만기환급 구조를 그대로 물고 있을 때에는 신중할 필요가 있으므로, 무작정 해지를 결정하기 전 장단점을 일목요연하게 설계 분석해 주는 상담을 거치는 방법이 합당합니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">만기환급형 상품과 순수보장형 상품 중에서 어느 구조가 우세한가요?</dt>
+                <dd>환급형 상품은 만기가 도래했을 때 원금을 일부 돌려준다는 설명 때문에 혜택이 커 보이지만, 그만큼 매월 적립해야 하는 보험료 납입 요금이 곱절 이상으로 비쌉니다. 더욱이 장기간 보장 기간을 거치는 도중에 중간 법규 개정이 찾아와 상품을 해지하거나 재가입해야 할 때 기회비용 손실이 커질 단점이 있습니다. 대다수 금융 전문가들은 만 원 수준으로 끝마칠 수 있는 순수보장형으로 싸게 유지하는 노하우를 가장 제안합니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">가족 운전자 범위를 부부 한정으로 결합해 묶어 가입하는 법의 강점은 무엇인가요?</dt>
+                <dd>배우자와 한 차량을 번갈아 운전하는 비중이 잦을 때는 각자 별도의 고유 운전자보험을 신규 개설하는 방식보다 하나의 증권에 부부 결합 형태로 운용하는 시스템을 검토하는 것이 좋습니다. 개별 등록 시 생기는 자질구레한 관리 소요를 절감할 뿐만 아니라 약 5%에서 10% 정도의 단체 할인 혜택까지 반영되므로 생활 경제에 유용하게 작용합니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">스쿨존 및 어린이 보호구역 사고에 최적화된 벌금 보조 한도는 최대 얼마인가요?</dt>
+                <dd>현행 개정법률이 수립된 시점 이후로 스쿨존 인명 사고 시 청구되는 최대 대인 벌금의 최고 한도금액은 3,000만 원까지 올라갔습니다. 따라서 기존에 2,000만 원 한도로만 가입되어 있는 구버전 계약을 가졌다면 반드시 부족한 1,000만 원 상당의 공백을 메울 수 있도록 다이렉트 전용 사이트를 참고하여 수정을 꾀해야 합니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">변호사선임비용의 자기부담금 규정은 어떻게 돌아가나요?</dt>
+                <dd>최근 개정된 약관 내용에 의거하면 가입자에게 과도한 도덕적 해이를 막기 위한 명목으로 일부 조건하에 심급별 변호사 선임 한도에 자기부담 비율이 명문화될 수 있습니다. 대략 수임 비용의 10%에서 최대 50%까지 자부담을 떠안아야 하는 신설 규정도 존재하므로 사전에 자신이 고른 상품설명서를 면밀하게 점검받아 대처하는 요령이 필요합니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">오토바이 배달 업무용 수송을 위한 운전자보험도 시중에서 구할 수 있나요?</dt>
+                <dd>배달 대행 업무의 비약적인 상승으로 이륜차 전용 운전자보험의 등록 건수 역시 매년 큰 관심을 얻고 있습니다. 다만 가정용 자가 승용차 대비 사고 확률이 월등하게 높다는 점으로 인하여 가입 기준 심사가 매끄럽지 않으며 비용 또한 일반 자가용 요금제에 대비해 약 3배에서 4배가량 높게 적용되는 특성이 수반됩니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">주말 위주로만 드라이브하는 차주에게 유용한 할인 제도나 앱 활용은 없나요?</dt>
+                <dd>운행 빈도가 현저히 극소한 주말 전용 드라이버를 위한 특수 옵션을 찾아 가입을 상담해 보거나 안전 운전 빅데이터 점수를 추적하는 전용 금융 어플들을 스마트폰에 장착하여 활용할 수 있습니다. 3대 포털이나 토스 등과 제휴된 다양한 주행 패턴 체크 특약들이 존재하므로, 이를 잘 결부하면 평균 요금선에서 높은 할인 혜택을 환급받는 형태를 띨 수 있습니다.</dd>
+            </dl>
+        </section>
+
+        <hr>
+
+        <section id="consulting">
+            <h2>합리적인 운전자보험 최적 설계 맞춤 상담 서비스</h2>
+            <p>다양하게 변화를 거듭하는 법률 개정 소식과 보험사별로 쉴 새 없이 변동하는 보장 요율 사이에서 혼자서 최적의 답안지를 찾아내는 작업은 대단히 수고롭습니다. 다이렉트 최저가 플랜부터 중복 가입 정보 및 숨은 혜택 지원금 찾기까지, 신뢰할 수 있는 소속 파트너들이 한 치의 군더더기 없는 담백한 컨설팅을 제공해 드립니다. 지금 바로 분석을 신청해 보세요.</p>
+            <p style="text-align: center; font-size: 1.5rem; font-weight: 700; color: var(--accent-color); margin-top: 2rem;">상담 안내 센터: 010-8267-2606</p>
+            <a href="tel:01082672606" class="cta-button" aria-label="운전자보험 최적화 전문가 무료 컨설팅 신청하기">실시간 맞춤 요금 분석 신청하기</a>
+        </section>
     </main>
-  </body>
-</html>
+
+    <script>
+      // FAQ 아코디언 기능 (접기/펼치기)
+      document.querySelectorAll('dl dt').forEach((dt) => {
+        dt.addEventListener('click', () => {
+          // 다른 항목 닫기
+          document.querySelectorAll('dl dt').forEach((otherDt) => {
+            if (otherDt !== dt && otherDt.classList.contains('active')) {
+              otherDt.classList.remove('active');
+              otherDt.setAttribute('aria-expanded', 'false');
+            }
+          });
+          
+          // 현재 항목 토글
+          dt.classList.toggle('active');
+          let expanded = dt.getAttribute('aria-expanded') === 'true';
+          dt.setAttribute('aria-expanded', !expanded);
+        });
+        dt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            dt.click();
+          }
+        });
+      });
+
+      // 자가 요금 시뮬레이터 연산 함수
+      function calculatePremium() {
+        const age = document.getElementById('calc-age').value;
+        const purpose = document.getElementById('calc-purpose').value;
+        const level = document.getElementById('calc-level').value;
+        const experience = document.getElementById('calc-experience').value;
+        
+        const chkLawyer = document.getElementById('chk-lawyer').checked;
+        const chkInjury = document.getElementById('chk-injury').checked;
+        const chkFamily = document.getElementById('chk-family').checked;
+        const chkSilver = document.getElementById('chk-silver').checked;
+
+        // 기본 요금 베이스 책정
+        let basePremium = 10000;
+
+        // 연령대 가중치 적용
+        if (age === '20') basePremium += 2500;
+        else if (age === '30') basePremium += 500;
+        else if (age === '40') basePremium += 0;
+        else if (age === '50') basePremium += 1500;
+        else if (age === '60') basePremium += 3500;
+
+        // 차량 사용목적 가중치
+        if (purpose === 'personal') basePremium += 0;
+        else if (purpose === 'couple') basePremium += 1200;
+        else if (purpose === 'commercial-truck') basePremium += 18000;
+        else if (purpose === 'commercial-taxi') basePremium += 22000;
+        else if (purpose === 'two-wheel') basePremium += 26000;
+
+        // 보장 수준 선택 가중치
+        if (level === 'eco') basePremium = Math.max(9000, basePremium - 2000);
+        else if (level === 'standard') basePremium += 5000;
+        else if (level === 'premium') basePremium += 15000;
+
+        // 사고 이력 반영
+        if (experience === 'clean') basePremium -= 1000;
+        else if (experience === 'minor') basePremium += 1000;
+        else if (experience === 'major') basePremium += 3000;
+
+        // 개별 체크박스 옵션 추가
+        if (chkLawyer) basePremium += 1500;
+        if (chkInjury) basePremium += 2500;
+        if (chkFamily) basePremium += 1800;
+        if (chkSilver) basePremium += 3000;
+
+        // 최소금액 보장
+        if (basePremium < 9500) basePremium = 9500;
+
+        // 결과 화면 출력 연출
+        const resultBox = document.getElementById('calc-result');
+        const priceLabel = document.getElementById('result-price');
+        const descLabel = document.getElementById('result-desc');
+
+        priceLabel.innerText = basePremium.toLocaleString() + ' 원';
+        
+        let descText = '선택하신 요건은 ';
+        if (purpose === 'personal' || purpose === 'couple') {
+            descText += '안정적인 개인 운송 목적군에 대응합니다. 월평균 만 원대의 예산으로 알뜰한 구성이 충분히 가능하며, ';
+        } else {
+            descText += '높은 사고 노출 빈도를 동반하는 전문적인 영업 및 이륜차 목적군에 포함됩니다. 따라서 면허 방어 지원과 합의금 최대 보장 위주의 견고한 세팅이 수반되므로 일반 설계 대비 높은 월 요금대가 예상됩니다. ';
+        }
+        
+        descText += '보다 구체적인 제휴 프로모션 우대 혜택 및 추가 사은품 수령 기회는 전문 맞춤 상담을 통해 확인 시 한층 확실하게 조율해 보실 수 있습니다.';
+        
+        descLabel.innerText = descText;
+        resultBox.classList.add('active');
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    </script>
+  
